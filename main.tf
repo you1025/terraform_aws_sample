@@ -12,11 +12,14 @@ terraform {
 # provider
 provider "aws" {
   profile = "terraform"
-  region  = "us-east-1"
+  region  = var.region
 }
 
 # variables
 variable "project" {
+  type = string
+}
+variable "region" {
   type = string
 }
 variable "environment" {
