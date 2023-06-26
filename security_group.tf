@@ -21,7 +21,7 @@ resource "aws_security_group_rule" "web_in_http" {
   from_port         = 80
   to_port           = 80
   cidr_blocks       = ["0.0.0.0/0"]
-  description = "${var.project}-${var.environment}-web-in-http-rule"
+  description       = "${var.project}-${var.environment}-web-in-http-rule"
 }
 #resource "aws_security_group_rule" "web_in_https" {
 #  security_group_id = aws_security_group.web_sg.id
