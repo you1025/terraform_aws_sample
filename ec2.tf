@@ -49,3 +49,13 @@ resource "aws_instance" "web_server" {
     Type        = "web server"
   }
 }
+
+
+###################
+# Elastic IP
+###################
+
+resource "aws_eip" "web-public-ip" {
+  instance = aws_instance.web_server.id
+  #domain   = "vpc"
+}
