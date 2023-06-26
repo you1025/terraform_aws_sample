@@ -57,5 +57,8 @@ resource "aws_instance" "web_server" {
 
 resource "aws_eip" "web-public-ip" {
   instance = aws_instance.web_server.id
-  #domain   = "vpc"
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
