@@ -50,3 +50,34 @@ resource "aws_security_group_rule" "web_out_https" {
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "${var.project}-${var.environment}-web-out-https-rule"
 }
+resource "aws_security_group_rule" "web_out_tcp3306" {
+  security_group_id        = aws_security_group.web_sg.id
+  type                     = "egress"
+  protocol                 = "tcp"
+  from_port                = 3306
+  to_port                  = 3306
+  source_security_group_id = aws_security_group.db_sg.id
+  description              = "${var.project}-${var.environment}-web-out-tcp3306-rule"
+}
+
+# DB
+resource "aws_security_group" "db_sg" {
+  name        = "${var.project}-${var.environment}-db-sg"
+  description = "database role security group"
+  vpc_id      = aws_vpc.vpc.id
+
+  tags = {
+    Name        = "${var.project}-${var.environment}-db-sg"
+    Project     = var.project
+    Environment = var.environment
+  }
+}
+resource "aws_security_group_rule" "db_in_tcp3306" {
+  security_group_id        = aws_security_group.db_sg.id
+  type                     = "ingress"
+  protocol                 = "tcp"
+  from_port                = 3306
+  to_port                  = 3306
+  source_security_group_id = aws_security_group.web_sg.id
+  description              = "${var.project}-${var.environment}-db-in-tcp3306-rule"
+}
