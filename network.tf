@@ -31,7 +31,7 @@ resource "aws_subnet" "public_subnet_1a" {
     Name        = "${var.project}-${var.environment}-public-subnet-1a"
     Project     = var.project
     Environment = var.environment
-    type        = "public"
+    Type        = "public"
   }
 }
 
@@ -45,7 +45,7 @@ resource "aws_subnet" "private_subnet_1a" {
     Name        = "${var.project}-${var.environment}-private-subnet-1a"
     Project     = var.project
     Environment = var.environment
-    type        = "private"
+    Type        = "private"
   }
 }
 resource "aws_subnet" "private_subnet_1c" {
@@ -58,7 +58,22 @@ resource "aws_subnet" "private_subnet_1c" {
     Name        = "${var.project}-${var.environment}-private-subnet-1c"
     Project     = var.project
     Environment = var.environment
-    type        = "private"
+    Type        = "private"
+  }
+}
+
+# TODO: サブネットの id の決め方を考えないといけない
+resource "aws_subnet" "public_subnet_2a" {
+  vpc_id                  = aws_vpc.vpc.id
+  availability_zone       = "${var.region}a"
+  cidr_block              = "192.168.4.0/24"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name        = "${var.project}-${var.environment}-public-subnet-2a"
+    Project     = var.project
+    Environment = var.environment
+    Type        = "public"
   }
 }
 
@@ -81,6 +96,10 @@ resource "aws_route_table" "public_rt" {
 resource "aws_route_table_association" "public_rt_1a" {
   route_table_id = aws_route_table.public_rt.id
   subnet_id      = aws_subnet.public_subnet_1a.id
+}
+resource "aws_route_table_association" "public_rt_2a" {
+  route_table_id = aws_route_table.public_rt.id
+  subnet_id      = aws_subnet.public_subnet_2a.id
 }
 
 # private
