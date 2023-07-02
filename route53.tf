@@ -15,10 +15,6 @@ resource "aws_route53_zone" "route53_zone" {
     Project     = var.project
     Environment = var.environment
   }
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "aws_route53_record" "route53_record" {
@@ -27,8 +23,4 @@ resource "aws_route53_record" "route53_record" {
   type    = "A"
   ttl     = 300
   records = [aws_eip.web-public-ip.public_ip]
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }

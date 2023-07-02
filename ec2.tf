@@ -90,15 +90,7 @@ resource "aws_instance" "springboard_server" {
 
 resource "aws_eip" "springboard-public-ip" {
   instance = aws_instance.springboard_server.id
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 resource "aws_eip" "web-public-ip" {
   instance = aws_instance.web_server.id
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
