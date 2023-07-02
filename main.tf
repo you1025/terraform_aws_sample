@@ -14,14 +14,3 @@ provider "aws" {
   profile = "terraform"
   region  = var.region
 }
-
-# variables
-variable "project" {
-  type = string
-}
-variable "region" {
-  type = string
-}
-variable "environment" {
-  type = string
-}
