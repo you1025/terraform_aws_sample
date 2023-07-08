@@ -39,7 +39,7 @@ resource "aws_instance" "web_server" {
   key_name = aws_key_pair.web_server.key_name
 
   # 初期設定
-  user_data = file("./user_data/web_server.sh")
+  user_data = file("../user_data/web_server.sh")
 
   tags = {
     Name        = "${var.project}-${var.environment}-web-server"
@@ -59,7 +59,7 @@ resource "aws_instance" "springboard" {
   ]
   key_name = aws_key_pair.springboard.key_name
 
-  user_data = file("./user_data/springboard_server.sh")
+  user_data = file("../user_data/springboard_server.sh")
 
   tags = {
     Name        = "${var.project}-${var.environment}-springboard-server"
