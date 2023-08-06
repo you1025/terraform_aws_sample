@@ -8,4 +8,4 @@ ami           = "ami-022e1a32d3f742bd8"
 instance_type = "t2.micro"
 
 domain_name  = "shimajiro.tokyo"
-host_zone_id = "Z0832342297ZK6SC8JQMR"
+host_zone_id = "ZXXXXXXXXXXXXXXXXXXXX"
