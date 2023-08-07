@@ -32,7 +32,7 @@ resource "aws_security_group_rule" "web_in_ssh" {
   source_security_group_id = aws_security_group.springboard.id
   description              = "${var.project}-${var.environment}-web-in-ssh-rule"
 }
-resource "aws_security_group_rule" "web_out_http" {
+resource "aws_security_group_rule" "web_out_http" { # for update
   security_group_id = aws_security_group.web.id
   type              = "egress"
   protocol          = "tcp"
@@ -41,7 +41,7 @@ resource "aws_security_group_rule" "web_out_http" {
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "${var.project}-${var.environment}-web-out-http-rule"
 }
-resource "aws_security_group_rule" "web_out_https" {
+resource "aws_security_group_rule" "web_out_https" { # for update
   security_group_id = aws_security_group.web.id
   type              = "egress"
   protocol          = "tcp"

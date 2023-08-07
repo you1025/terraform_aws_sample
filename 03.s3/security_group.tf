@@ -23,7 +23,7 @@ resource "aws_security_group_rule" "springboard_in_ssh" {
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "${var.project}-${var.environment}-springboard-in-ssh-rule"
 }
-resource "aws_security_group_rule" "springboard_out_http" {
+resource "aws_security_group_rule" "springboard_out_http" { # for update
   security_group_id = aws_security_group.springboard.id
   type              = "egress"
   protocol          = "tcp"
@@ -32,7 +32,7 @@ resource "aws_security_group_rule" "springboard_out_http" {
   cidr_blocks       = ["0.0.0.0/0"]
   description       = "${var.project}-${var.environment}-springboard-out-http-rule"
 }
-resource "aws_security_group_rule" "springboard_out_https" {
+resource "aws_security_group_rule" "springboard_out_https" { # for update
   security_group_id = aws_security_group.springboard.id
   type              = "egress"
   protocol          = "tcp"
