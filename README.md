@@ -13,3 +13,4 @@ Terraform をお試しするにあたって試したコードを整理して残�
 
 - [AWS と Terraformで実現するInfrastructure as Code](https://www.udemy.com/course/iac-with-terraform/)
 - [ゼロから実践するAmazon Web Services](https://www.udemy.com/course/aws-and-infra/)
+- [AWSで学ぶ！SSL/TLS入門](https://www.udemy.com/course/ssltls-q/)
