@@ -20,7 +20,7 @@ resource "aws_security_group_rule" "web_in_http" {
   protocol          = "tcp"
   from_port         = 80
   to_port           = 80
-  cidr_blocks       = ["0.0.0.0/0"]
+  source_security_group_id = aws_security_group.alb.id
   description       = "${var.project}-${var.environment}-web-in-http-rule"
 }
 resource "aws_security_group_rule" "web_in_ssh" {
