@@ -8,6 +8,7 @@ Terraform をお試しするにあたって試したコードを整理して残�
 - [Route53](https://github.com/you1025/terraform_aws_sample/tree/main/04.route53): Zone と A レコード
 - [ELB](https://github.com/you1025/terraform_aws_sample/tree/main/05.elb): ALB
 - [SSL/TLS](https://github.com/you1025/terraform_aws_sample/tree/main/06.tls): ACM による実現
+- [AutoScaling](https://github.com/you1025/terraform_aws_sample/tree/main/07.auto_scaling): Auto Scaling の雛形
 
 # 参考
 
