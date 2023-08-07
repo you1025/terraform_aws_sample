@@ -1,4 +1,4 @@
-Nat Gateway を経由して private subnet にある Web サーバからインターネットに出る。
+Nat Gateway を経由して private subnet にある Web サーバからインターネットに出る。  
 Web サーバから `curl http://www.google.com` で 80 番が外に出られる事を確認できる。
 
 - ネットワーク
